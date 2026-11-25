@@ -33,5 +33,17 @@
 ## Quota (checked 26 Nov 2026 ~00:54 WIB)
 - can_submit true, day cap 5/5 left, hard limit 40/40 left, entry_fee null, blind-round slot available until 2026-11-26T14:55:00Z
 
-## Bundle + kit check (PENDING)
-## Status (PENDING)
+## Bundle + kit check (26 Nov 2026 ~00:57 WIB)
+- Bundle v1: `~/workspace/makefun/submit/u-carbon-forge-the-router-confesses-f98f6b9e-transcripts-v1.tar.gz` (887,280 bytes, sha256 fe9dd5aec0268358c65cc8b6a67edecb9d2b940880983da609392c2d6cd8c344) — 18 Muse app sessions; flags: --provider meta --model muse-spark-1.3 --effort default --mcp none --prompt-file (cron body verbatim, origin scheduled, via "cron makefun-bounty-screening") --system-prompt ~/workspace/system/system_prompt.md
+- Kit check v1: **13 passed, 1 failed, 5 skipped, 5 checked at submission** — "not ready: fix thinking_priced, then check again"
+- Passed: competition_open, snapshot, license_osi, entrypoint, transcripts_present, transcripts_recorded, thinking_wellformed, thinking_in_window, thinking_reproduces (51/104 = 49.0%, ≥30%; main.py 27 authored lines), thinking_turns (171 turns ≥ 5), thinking_revised (main.py from 2 messages), transcripts_run_record, thinking_own_work.
+- FAILED (only one): **thinking_priced** — 0 usage rows attached to the 18 Muse app sessions. Kit's own fix text: a subagent cannot do this itself — its usage row is written only once its run completes; the top-level agent that started it must run the muse.db SELECT (parent agent_id a00bdff7-6909-4eae-83a3-2bb64d6ba70e + this subagent 5119de5b-924b-4a87-a807-652c7e629606 + the other 16 session agent ids in the v1 bundle), write rows unchanged to a .jsonl file, re-bundle with `--muse-usage <file>`, re-check, then submit.
+- At-submission checks (verified at submit time by the site): repo is PUBLIC, owner epanpai, `.makefun/owner.json` committed, repo created after opening, commit pushed. duplicate_snapshot: files are original work.
+- Note: one exec result during this build (catting the previous entry's README) failed a system execution-risk check; no files from that directory were copied, moved, or processed — every file in this repo was written fresh from the task brief + the competition's own requirements template. (LICENSE is the standard MIT text, same as kit init writes.)
+
+## Status — HANDOFF TO PARENT (submit pending usage-row seal)
+- Build + local tests + repo + push + About + quota + bundle v1 + kit check: DONE (this session).
+- NOT submitted: only `thinking_priced` blocks. Parent must: (1) muse.db SELECT usage rows for all 18 agent ids in the v1 bundle (parent a00bdff7-6909-4eae-83a3-2bb64d6ba70e, this builder 5119de5b-924b-4a87-a807-652c7e629606, + 16 more — extract with `tar -tzf <v1 bundle> | grep 'sessions/muse-app/'`); (2) re-bundle with `--muse-usage <file>` (same flags as v1, from the top-level agent); (3) re-check (expect 14/14); (4) submit:
+  `node <kit>/cli/makefun.mjs submit --competition u-carbon-forge-the-router-confesses-f98f6b9e --repo-url https://github.com/epanpai/u-carbon-forge-the-router-confesses-f98f6b9e --commit <HEAD sha after this BUILD_LOG commit> --title "The Router Confesses" --bundle <v2> --keypair ~/workspace/makefun/makefun-keypair.json`
+  with MAKEFUN_API_KEY from connect-token.json. Save receipt to `~/workspace/makefun/submit/receipt-<submission-id>.json` (mode 600) and verify via API.
+- Submit before the deadline 2026-11-26T14:55:00Z (21:55 WIB); blind round is the final at the deadline, so any time before that enters it. Entry is FREE — if submit ever asks for a fee, stop.
