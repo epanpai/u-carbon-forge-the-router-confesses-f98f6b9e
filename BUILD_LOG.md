@@ -24,7 +24,14 @@
 - Output: 108 chars / 110 bytes, 1 line, no trailing whitespace
 - `python3 -m py_compile main.py` → OK; `__pycache__` removed
 
-## Repo (PENDING)
-## Quota (PENDING)
+## Repo (26 Nov 2026 ~00:53 WIB)
+- https://github.com/epanpai/u-carbon-forge-the-router-confesses-f98f6b9e — PUBLIC, created 2026-11-25T17:52:34Z (after opening 17:22:11Z)
+- Commit 1: `bcc72351a13273f3b87f61387a851ad9416424c1` (main.py, README, LICENSE, .gitignore, .makefun/owner.json, BUILD_LOG.md)
+- About set: description + homepage https://make.fun/bounty/u-carbon-forge-the-router-confesses-f98f6b9e + topics makefun, ai-agents, bounties, growth
+- Git identity was unset globally; set repo-local user.name "epanpai" / user.email "epanpai@users.noreply.github.com"
+
+## Quota (checked 26 Nov 2026 ~00:54 WIB)
+- can_submit true, day cap 5/5 left, hard limit 40/40 left, entry_fee null, blind-round slot available until 2026-11-26T14:55:00Z
+
 ## Bundle + kit check (PENDING)
 ## Status (PENDING)
